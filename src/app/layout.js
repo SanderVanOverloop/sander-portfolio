@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Portfolio - Your Name",
+  title: "Portfolio - Sander Van Overloop",
   description: "Full Stack Developer & Designer Portfolio",
 };
 

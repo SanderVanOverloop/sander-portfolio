@@ -21,7 +21,7 @@ const Homepage = () => {
         <div className={styles.hero}>
           <div className={styles.profilePicture}>
             <Image
-              src="/profile_circle.png"
+              src="./profile_circle.png"
               alt="Sander Van Overloop"
               width={200}
               height={200}

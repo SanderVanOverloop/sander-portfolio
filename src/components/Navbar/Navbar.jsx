@@ -38,6 +38,14 @@ const Navbar = () => {
           >
             Contact
           </Link>
+          <a
+            href="/Sander-Van-Overloop-CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.resumeBtn}
+          >
+            Resume
+          </a>
         </div>
       </div>
     </nav>

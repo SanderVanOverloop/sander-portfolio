@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import styles from './Homepage.module.css';
 
 const Homepage = () => {
@@ -18,6 +19,15 @@ const Homepage = () => {
     <section className={styles.homepage}>
       <div className={styles.container}>
         <div className={styles.hero}>
+          <div className={styles.profilePicture}>
+            <Image
+              src="/profile_circle.png"
+              alt="Sander Van Overloop"
+              width={200}
+              height={200}
+              className={styles.profileImg}
+            />
+          </div>
           <h1 className={styles.title}>
             Hi, I'm <span className={styles.highlight}>Sander Van Overloop</span>
           </h1>

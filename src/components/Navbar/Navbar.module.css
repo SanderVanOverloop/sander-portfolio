@@ -46,16 +46,36 @@
   background: #317d79;
 }
 
+.resumeBtn {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  background: #317d79;
+  transition: all 0.3s ease;
+  border: 2px solid #317d79;
+}
+
+.resumeBtn:hover {
+  background: #2a6b67;
+  border-color: #2a6b67;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(49, 125, 121, 0.3);
+}
+
 @media (max-width: 768px) {
   .navContainer {
     padding: 0 1rem;
   }
   
   .navLinks {
-    gap: 1rem;
+    gap: 0.8rem;
   }
   
-  .navLink {
+  .navLink,
+  .resumeBtn {
     font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
   }
 }

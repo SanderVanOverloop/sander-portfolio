@@ -114,7 +114,7 @@ const About = () => {
             <div className={styles.heroImage}>
               <div className={styles.imageWrapper}>
                 <Image
-                  src="/profile_circle.png"
+                  src="./profile_circle.png"
                   alt="Sander Van Overloop"
                   width={280}
                   height={280}

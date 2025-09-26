@@ -68,18 +68,15 @@ const Homepage = () => {
       </div>
       
       <div className={styles.container}>
-        <div className={`${styles.hero} ${isVisible ? styles.fadeInUp : ''}`}>
-          <div className={`${styles.profileSection} ${isVisible ? styles.scaleIn : ''}`}>
-            <div className={styles.profilePicture}>
-              <Image
-                src="/profile_circle.png"
-                alt="Sander Van Overloop"
-                width={250}
-                height={250}
-                className={styles.profileImg}
-              />
-              <div className={styles.profileGlow}></div>
-            </div>
+        <div className={styles.hero}>
+          <div className={styles.profilePicture}>
+            <Image
+              src="/profile_circle.png"
+              alt="Sander Van Overloop"
+              width={200}
+              height={200}
+              className={styles.profileImg}
+            />
           </div>
           
           <div className={styles.textSection}>

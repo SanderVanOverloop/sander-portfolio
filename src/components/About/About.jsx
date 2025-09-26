@@ -7,7 +7,7 @@ import styles from './About.module.css';
 const About = () => {
   const [activeTab, setActiveTab] = useState('technical');
   const [isVisible, setIsVisible] = useState(false);
-  const [counters, setCounters] = useState({ projects: 0, technologies: 0, experience: 0 });
+  const [counters, setCounters] = useState({ projects: 0, technologies: 0 });
 
   // Animation trigger on component mount
   useEffect(() => {
@@ -32,7 +32,6 @@ const About = () => {
     const timer = setTimeout(() => {
       animateCounter(15, 'projects');
       animateCounter(25, 'technologies');
-      animateCounter(2, 'experience');
     }, 500);
 
     return () => clearTimeout(timer);
@@ -40,8 +39,7 @@ const About = () => {
 
   const stats = [
     { number: counters.projects, label: 'Projects Completed', suffix: '+' },
-    { number: counters.technologies, label: 'Technologies', suffix: '+' },
-    { number: counters.experience, label: 'Years Experience', suffix: '+' }
+    { number: counters.technologies, label: 'Technologies', suffix: '+' }
   ];
 
   const categorizedSkills = {
@@ -156,7 +154,7 @@ const About = () => {
                 I'm also open to frontend projects and enjoy building complete, user-focused applications.
               </p>
               <p className={styles.paragraph}>
-                Outside of coding, I'm passionate about <strong>Formula 1</strong>, gaming, walking in nature, and staying active.
+                Outside of coding, I'm passionate about Formula 1, gaming, walking in nature, and staying active.
                 I believe in continuous learning and always strive to grow both professionally and personally.
                 I love creating elegant solutions to complex problems and building responsive, user-friendly applications that make a difference.
               </p>
@@ -166,7 +164,7 @@ const About = () => {
                   <div className={styles.highlightIcon}>🚀</div>
                   <div>
                     <h4>Innovation Focused</h4>
-                    <p>Always exploring cutting-edge technologies</p>
+                    <p>Always exploring new technologies</p>
                   </div>
                 </div>
                 <div className={styles.highlightCard}>

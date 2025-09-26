@@ -1,125 +1,347 @@
 .projects {
+  min-height: 100vh;
   padding: 6rem 2rem;
   background: #0a192f;
+  position: relative;
+  overflow: hidden;
+}
+
+.projects::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(49, 125, 121, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(49, 125, 121, 0.05) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(49, 125, 121, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.backgroundEffects {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.floatingShape {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(49, 125, 121, 0.06);
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  animation: floatAndMorph 10s ease-in-out infinite;
+}
+
+.floatingShape:nth-child(2) {
+  animation-delay: 4s;
+  width: 120px;
+  height: 120px;
+}
+
+.floatingShape:nth-child(3) {
+  animation-delay: 7s;
+  width: 80px;
+  height: 80px;
+}
+
+@keyframes floatAndMorph {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg) scale(1);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+  25% { 
+    transform: translateY(-25px) rotate(90deg) scale(1.1);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% { 
+    transform: translateY(15px) rotate(180deg) scale(0.9);
+    border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
+  }
+  75% { 
+    transform: translateY(-10px) rotate(270deg) scale(1.05);
+    border-radius: 40% 60% 70% 30% / 50% 70% 30% 60%;
+  }
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.titleSection {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.titleIcon {
+  font-size: 3rem;
+  color: #317d79;
+  margin-bottom: 1rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
 }
 
 .title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
+  font-size: 3.5rem;
+  font-weight: 800;
   margin-bottom: 1rem;
   color: #ffffff;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: #317d79;
+  text-shadow: 0 0 20px rgba(49, 125, 121, 0.5);
 }
 
 .subtitle {
-  text-align: center;
+  font-size: 1.2rem;
+  color: #a8b2d1;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #317d79;
+  font-weight: 600;
   font-size: 1.1rem;
-  color: #e6f1ff;
-  margin-bottom: 3rem;
 }
 
-.grid {
+.stat svg {
+  font-size: 1.3rem;
+}
+
+/* Projects Grid */
+.projectsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 5rem;
 }
 
-.card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.projectCard {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(49, 125, 121, 0.2);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-height: 300px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px) scale(0.9);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  min-height: 450px;
   display: flex;
   flex-direction: column;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(49, 125, 121, 0.3);
+.projectCard.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
-.content {
-  padding: 2rem;
+.projectCard:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(49, 125, 121, 0.3);
+  border-color: #317d79;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem 0;
+}
+
+.projectIcon {
+  font-size: 2.5rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.projectStatus {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #4ade80;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  background: #4ade80;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.2); }
+}
+
+.cardContent {
+  padding: 0 1.5rem 1.5rem;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
 .projectTitle {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.4rem;
+  font-weight: 700;
   margin-bottom: 1rem;
   color: #ffffff;
   line-height: 1.3;
 }
 
-.description {
-  color: #e6f1ff;
+.projectDescription {
+  color: #a8b2d1;
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  flex: 1;
   font-size: 0.95rem;
+  flex: 1;
+}
+
+.technologiesSection {
+  margin-bottom: 1.5rem;
+}
+
+.techTitle {
+  font-size: 0.9rem;
+  color: #317d79;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .technologies {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 2rem;
-  margin-top: auto;
 }
 
 .tech {
-  background: rgba(49, 125, 121, 0.2);
+  background: rgba(49, 125, 121, 0.15);
   color: #4dd0cc;
-  padding: 0.3rem 0.8rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 15px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  border: 1px solid #4dd0cc;
-}
-
-.links {
-  display: flex;
-  gap: 1rem;
-}
-
-.liveLink,
-.githubLink {
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 500;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(77, 208, 204, 0.3);
   transition: all 0.3s ease;
+}
+
+.tech:hover {
+  background: rgba(49, 125, 121, 0.25);
+  border-color: #4dd0cc;
+  transform: translateY(-2px);
+}
+
+/* CTA Section */
+.ctaSection {
   text-align: center;
-  flex: 1;
+  padding: 4rem 2rem;
+  background: rgba(49, 125, 121, 0.05);
+  border-radius: 20px;
+  border: 1px solid rgba(49, 125, 121, 0.2);
+  backdrop-filter: blur(15px);
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 1s ease-out 0.8s forwards;
 }
 
-.liveLink {
-  background: #317d79;
-  color: white;
+.ctaTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
 }
 
-.liveLink:hover {
-  background: #2a6b67;
+.ctaText {
+  font-size: 1.1rem;
+  color: #a8b2d1;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.githubLink {
-  background: transparent;
-  color: #317d79;
-  border: 2px solid #317d79;
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #317d79, #2a6b67);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(49, 125, 121, 0.3);
 }
 
-.githubLink:hover {
-  background: #317d79;
-  color: white;
+.ctaButton:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(49, 125, 121, 0.5);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .projectsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
 }
 
 @media (max-width: 768px) {
@@ -127,12 +349,46 @@
     padding: 4rem 1rem;
   }
   
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .title {
+    font-size: 2.5rem;
   }
   
+  .stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .projectsGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .projectCard {
+    min-height: 400px;
+  }
+  
+  .ctaButton {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .floatingShape {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
   .title {
     font-size: 2rem;
+  }
+  
+  .projectCard {
+    min-height: 350px;
+  }
+  
+  .cardHeader,
+  .cardContent {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }

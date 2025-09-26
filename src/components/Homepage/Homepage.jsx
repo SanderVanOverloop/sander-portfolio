@@ -72,7 +72,7 @@ const Homepage = () => {
           <div className={`${styles.profileSection} ${isVisible ? styles.scaleIn : ''}`}>
             <div className={styles.profilePicture}>
             <Image
-              src="/profile_circle.png"
+              src="./profile_circle.png"
               alt="Sander Van Overloop"
               width={200}
               height={200}

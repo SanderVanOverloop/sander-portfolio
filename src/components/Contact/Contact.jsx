@@ -134,7 +134,7 @@ const Contact = () => {
                 Available for new opportunities
               </div>
               <p className={styles.availabilityText}>
-                Currently open for full-time positions and freelance projects.
+                Currently open for full-time positions.
                 Response time: Usually within 24 hours.
               </p>
             </div>

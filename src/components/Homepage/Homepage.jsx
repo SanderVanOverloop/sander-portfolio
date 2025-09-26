@@ -9,47 +9,25 @@ const Homepage = () => {
   const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
   const [typedText, setTypedText] = useState('');
-  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-
-  const roles = ['Full Stack Developer', 'Backend Specialist', 'Problem Solver', 'Code Enthusiast'];
 
   useEffect(() => {
     setIsVisible(true);
     
-    // Typewriter effect for roles
-    let currentText = '';
-    let currentCharIndex = 0;
-    let isDeleting = false;
+    // Simple typewriter effect for "Full Stack Developer"
+    const targetText = "Full Stack Developer";
+    let charIndex = 0;
     
     const typewriterEffect = () => {
-      const currentRole = roles[currentRoleIndex];
-      
-      if (!isDeleting && currentCharIndex <= currentRole.length) {
-        currentText = currentRole.substring(0, currentCharIndex);
-        setTypedText(currentText);
-        currentCharIndex++;
-        setTimeout(typewriterEffect, 100);
-      } else if (isDeleting && currentCharIndex >= 0) {
-        currentText = currentRole.substring(0, currentCharIndex);
-        setTypedText(currentText);
-        currentCharIndex--;
-        setTimeout(typewriterEffect, 50);
-      } else if (!isDeleting && currentCharIndex > currentRole.length) {
-        setTimeout(() => {
-          isDeleting = true;
-          typewriterEffect();
-        }, 2000);
-      } else if (isDeleting && currentCharIndex < 0) {
-        isDeleting = false;
-        currentCharIndex = 0;
-        setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
-        setTimeout(typewriterEffect, 500);
+      if (charIndex < targetText.length) {
+        setTypedText(targetText.substring(0, charIndex + 1));
+        charIndex++;
+        setTimeout(typewriterEffect, 120);
       }
     };
 
-    const timer = setTimeout(typewriterEffect, 1000);
+    const timer = setTimeout(typewriterEffect, 1200);
     return () => clearTimeout(timer);
-  }, [currentRoleIndex]);
+  }, []);
 
   const handleViewWork = () => {
     router.push('/projects');
@@ -72,7 +50,7 @@ const Homepage = () => {
           <div className={`${styles.profileSection} ${isVisible ? styles.scaleIn : ''}`}>
             <div className={styles.profilePicture}>
             <Image
-              src="./profile_circle.png"
+              src="/profile_circle.png"
               alt="Sander Van Overloop"
               width={200}
               height={200}

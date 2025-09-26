@@ -158,18 +158,6 @@ const Projects = () => {
             </div>
           ))}
         </div>
-
-        {/* Call to Action */}
-        <div className={styles.ctaSection}>
-          <h3 className={styles.ctaTitle}>Interested in collaborating?</h3>
-          <p className={styles.ctaText}>
-            I'm always open to discussing new opportunities and innovative projects.
-          </p>
-          <a href="/contact" className={styles.ctaButton}>
-            <FaRocket />
-            Let's Work Together
-          </a>
-        </div>
       </div>
     </section>
   );

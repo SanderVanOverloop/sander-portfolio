@@ -43,21 +43,98 @@ const About = () => {
   ];
 
   const categorizedSkills = {
-    'Frontend': ['React', 'Vue.js', 'Angular', 'Tailwind CSS', 'Next.js'],
-    '.NET': ['C#', '.NET MAUI', 'Entity Framework Core', 'ASP.NET CORE'],
-    Java: ['Java', 'Spring Boot'],
-    Python: ['Python', 'Flask API'],
-    Javascript: ['Node.js', 'Express.js', 'JavaScript', 'TypeScript'],
-    'Databases': ['MySQL', 'PostgreSQL', 'MongoDB'],
-    'Version Control': ['Git', 'GitHub', 'Azure Repo', 'Bitbucket'],
-    'Testing': ['JUnit', 'Mockito'],
-    'Other technology': ['Docker', 'RestAPI', 'RabbitMQ', 'Flutter'],
+    'Frontend': {
+      icon: '🎨',
+      color: '#61DAFB',
+      skills: [
+        { name: 'React', level: 70 },
+        { name: 'Vue.js', level: 80 },
+        { name: 'Angular', level: 80 },
+        { name: 'Tailwind CSS', level: 80 },
+        { name: 'Next.js', level: 85 }
+      ]
+    },
+    '.NET': {
+      icon: '⚡',
+      color: '#f7f7f7ff',
+      skills: [
+        { name: 'C#', level: 80 },
+        { name: '.NET MAUI', level: 70 },
+        { name: 'Entity Framework Core', level: 80 },
+        { name: 'ASP.NET CORE', level: 80 }
+      ]
+    },
+    'Java': {
+      icon: '☕',
+      color: '#ED8B00',
+      skills: [
+        { name: 'Java', level: 90 },
+        { name: 'Spring Boot', level: 90 }
+      ]
+    },
+    'Python': {
+      icon: '🐍',
+      color: '#3776AB',
+      skills: [
+        { name: 'Python', level: 70 },
+        { name: 'Flask API', level: 60 }
+      ]
+    },
+    'JavaScript': {
+      icon: '🚀',
+      color: '#F7DF1E',
+      skills: [
+        { name: 'Node.js', level: 65 },
+        { name: 'Express.js', level: 60 },
+        { name: 'JavaScript', level: 70 },
+        { name: 'TypeScript', level: 70 }
+      ]
+    },
+    'Databases': {
+      icon: '🗄️',
+      color: '#4DB33D',
+      skills: [
+        { name: 'MySQL', level: 70 },
+        { name: 'PostgreSQL', level: 70 },
+        { name: 'MongoDB', level: 60 }
+      ]
+    },
+    'DevOps & Tools': {
+      icon: '🛠️',
+      color: '#2496ED',
+      skills: [
+        { name: 'Docker', level: 70 },
+        { name: 'Git', level: 90 },
+        { name: 'GitHub', level: 88 },
+        { name: 'Azure Repo', level: 40 }
+      ]
+    },
+    'Testing': {
+      icon: '🧪',
+      color: '#25A162',
+      skills: [
+        { name: 'JUnit', level: 80 },
+        { name: 'Mockito', level: 80 }
+      ]
+    }
   };
 
   const personalSkills = {
-    Interests: ['Formula 1', 'Gaming', 'Walking', 'Staying active', 'Football'],
-    Traits: ['Teamwork', 'Communication', 'Adaptability', 'Problem Solving', 'Continuous Learning', 'Patience'],
-    Languages: ['Dutch', 'English'],
+    'Interests': {
+      icon: '🎯',
+      color: '#FF6B6B',
+      items: ['Formula 1', 'Gaming', 'Walking', 'Staying active', 'Football']
+    },
+    'Soft Skills': {
+      icon: '🤝',
+      color: '#4ECDC4',
+      items: ['Teamwork', 'Communication', 'Adaptability', 'Problem Solving', 'Continuous Learning', 'Patience']
+    },
+    'Languages': {
+      icon: '🌍',
+      color: '#45B7D1',
+      items: ['Dutch (Native)', 'English (Fluent)']
+    }
   };
 
   const renderCategorizedSkills = (categories) => (
@@ -67,14 +144,33 @@ const About = () => {
         <span className={styles.scrollArrow}>↓</span>
       </div>
       <div className={styles.skillsContainer}>
-        {Object.entries(categories).map(([category, skills]) => (
-          <div key={category} className={styles.skillCategory}>
-            <h4 className={styles.categoryTitle}>{category}</h4>
+        {Object.entries(categories).map(([category, data], index) => (
+          <div 
+            key={category} 
+            className={styles.skillCategory}
+            style={{ '--category-color': data.color, animationDelay: `${index * 0.1}s` }}
+          >
+            <div className={styles.categoryHeader}>
+              <span className={styles.categoryIcon}>{data.icon}</span>
+              <h4 className={styles.categoryTitle}>{category}</h4>
+            </div>
             <div className={styles.categorySkills}>
-              {skills.map((skill) => (
-                <span key={skill} className={styles.skill}>
-                  {skill}
-                </span>
+              {data.skills.map((skillData, skillIndex) => (
+                <div key={skillData.name} className={styles.skillItem} style={{ animationDelay: `${(index * 0.1) + (skillIndex * 0.05)}s` }}>
+                  <div className={styles.skillHeader}>
+                    <span className={styles.skillName}>{skillData.name}</span>
+                    <span className={styles.skillLevel}>{skillData.level}%</span>
+                  </div>
+                  <div className={styles.skillBar}>
+                    <div 
+                      className={styles.skillProgress}
+                      style={{ 
+                        '--skill-level': `${skillData.level}%`,
+                        '--skill-color': data.color 
+                      }}
+                    ></div>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
@@ -86,12 +182,23 @@ const About = () => {
 
   const renderPersonalSkills = (skills) => (
     <div className={styles.personalSkillsContainer}>
-      {Object.entries(skills).map(([category, items]) => (
-        <div key={category} className={styles.personalCategory}>
-          <h4 className={styles.personalCategoryTitle}>{category}</h4>
+      {Object.entries(skills).map(([category, data], index) => (
+        <div 
+          key={category} 
+          className={styles.personalCategory}
+          style={{ '--category-color': data.color, animationDelay: `${index * 0.2}s` }}
+        >
+          <div className={styles.personalCategoryHeader}>
+            <span className={styles.personalCategoryIcon}>{data.icon}</span>
+            <h4 className={styles.personalCategoryTitle}>{category}</h4>
+          </div>
           <div className={styles.personalSkillsGrid}>
-            {items.map((skill) => (
-              <span key={skill} className={styles.personalSkill}>
+            {data.items.map((skill, skillIndex) => (
+              <span 
+                key={skill} 
+                className={styles.personalSkill}
+                style={{ animationDelay: `${(index * 0.2) + (skillIndex * 0.1)}s` }}
+              >
                 {skill}
               </span>
             ))}
@@ -119,7 +226,7 @@ const About = () => {
             <div className={styles.heroImage}>
               <div className={styles.imageWrapper}>
                 <Image
-                  src="./profile_circle.png"
+                  src="/profile_circle.png"
                   alt="Sander Van Overloop"
                   width={280}
                   height={280}

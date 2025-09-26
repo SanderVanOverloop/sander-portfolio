@@ -103,7 +103,7 @@ const Contact = () => {
             Let's <span className={styles.highlight}>Connect</span>
           </h2>
           <p className={styles.subtitle}>
-            Ready to bring your ideas to life? Let's discuss your next project!
+            I’m always eager to grow and take on new challenges feel free to reach out if you’d like to know more.
           </p>
         </div>
         

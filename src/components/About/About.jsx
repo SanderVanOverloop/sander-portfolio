@@ -61,19 +61,26 @@ const About = () => {
   };
 
   const renderCategorizedSkills = (categories) => (
-    <div className={styles.skillsContainer}>
-      {Object.entries(categories).map(([category, skills]) => (
-        <div key={category} className={styles.skillCategory}>
-          <h4 className={styles.categoryTitle}>{category}</h4>
-          <div className={styles.categorySkills}>
-            {skills.map((skill) => (
-              <span key={skill} className={styles.skill}>
-                {skill}
-              </span>
-            ))}
+    <div className={styles.skillsWrapper}>
+      <div className={styles.scrollIndicator}>
+        <span className={styles.scrollText}>Scroll to explore all skills</span>
+        <span className={styles.scrollArrow}>↓</span>
+      </div>
+      <div className={styles.skillsContainer}>
+        {Object.entries(categories).map(([category, skills]) => (
+          <div key={category} className={styles.skillCategory}>
+            <h4 className={styles.categoryTitle}>{category}</h4>
+            <div className={styles.categorySkills}>
+              {skills.map((skill) => (
+                <span key={skill} className={styles.skill}>
+                  {skill}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+      <div className={styles.scrollFade}></div>
     </div>
   );
 

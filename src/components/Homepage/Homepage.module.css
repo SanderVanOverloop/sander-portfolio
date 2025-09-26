@@ -314,6 +314,7 @@
 @media (max-width: 768px) {
   .homepage {
     padding: 0 1rem;
+    padding-top: 80px; /* Account for fixed navbar */
   }
   
   .hero {
@@ -328,12 +329,19 @@
     font-size: 1.5rem;
   }
   
+  .roleContainer {
+    height: 60px;
+  }
+  
   .description {
     font-size: 1rem;
+    margin-bottom: 1.5rem;
   }
   
   .stats {
     gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
   .statNumber {
@@ -343,15 +351,114 @@
   .ctaButtons {
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
   }
   
   .primaryBtn,
   .secondaryBtn {
-    width: 250px;
+    width: 100%;
+    max-width: 280px;
     justify-content: center;
+    padding: 1.2rem 2rem;
+    font-size: 1.1rem;
   }
   
   .floatingShape {
     display: none;
+  }
+  
+  .greeting {
+    font-size: 1.1rem;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage {
+    padding: 0 0.75rem;
+    padding-top: 70px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .roleText {
+    font-size: 1.3rem;
+  }
+  
+  .roleContainer {
+    height: 50px;
+    margin-bottom: 1rem;
+  }
+  
+  .description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  
+  .stats {
+    gap: 1.5rem;
+  }
+  
+  .stat {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .statNumber {
+    font-size: 1.3rem;
+  }
+  
+  .statLabel {
+    font-size: 0.8rem;
+  }
+  
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .greeting {
+    font-size: 1rem;
+  }
+  
+  .wave {
+    font-size: 1.3rem;
+  }
+  
+  .profileImg {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .roleText {
+    font-size: 1.2rem;
+  }
+  
+  .stats {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .primaryBtn,
+  .secondaryBtn {
+    padding: 0.9rem 1.2rem;
+  }
+  
+  .profileImg {
+    width: 180px;
+    height: 180px;
   }
 }

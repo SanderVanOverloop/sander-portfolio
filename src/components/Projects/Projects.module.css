@@ -347,15 +347,34 @@
 @media (max-width: 768px) {
   .projects {
     padding: 4rem 1rem;
+    padding-top: 100px; /* Account for fixed navbar */
+  }
+  
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  .header {
+    margin-bottom: 3rem;
   }
   
   .title {
     font-size: 2.5rem;
   }
   
+  .subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+  
   .stats {
     flex-direction: column;
     gap: 1rem;
+    align-items: center;
+  }
+  
+  .stat {
+    font-size: 1rem;
   }
   
   .projectsGrid {
@@ -367,6 +386,43 @@
     min-height: 400px;
   }
   
+  .cardHeader {
+    padding: 1.2rem 1.2rem 0;
+  }
+  
+  .cardContent {
+    padding: 0 1.2rem 1.2rem;
+  }
+  
+  .projectTitle {
+    font-size: 1.2rem;
+  }
+  
+  .projectDescription {
+    font-size: 0.9rem;
+  }
+  
+  .technologies {
+    gap: 0.4rem;
+  }
+  
+  .tech {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  .ctaSection {
+    padding: 3rem 1.5rem;
+  }
+  
+  .ctaTitle {
+    font-size: 1.8rem;
+  }
+  
+  .ctaText {
+    font-size: 1rem;
+  }
+  
   .ctaButton {
     padding: 0.8rem 2rem;
     font-size: 1rem;
@@ -375,20 +431,160 @@
   .floatingShape {
     display: none;
   }
+  
+  .titleIcon {
+    font-size: 2.5rem;
+  }
 }
 
 @media (max-width: 480px) {
+  .projects {
+    padding: 3rem 0.75rem;
+    padding-top: 80px;
+  }
+  
   .title {
     font-size: 2rem;
+    line-height: 1.1;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    line-height: 1.5;
   }
   
   .projectCard {
-    min-height: 350px;
+    min-height: 380px;
   }
   
-  .cardHeader,
+  .cardHeader {
+    padding: 1rem 1rem 0;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
+  
+  .projectIcon {
+    font-size: 2rem;
+  }
+  
   .cardContent {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 0 1rem 1rem;
+  }
+  
+  .projectTitle {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .projectDescription {
+    font-size: 0.85rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .techTitle {
+    font-size: 0.8rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .technologies {
+    gap: 0.3rem;
+  }
+  
+  .tech {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .technologiesSection {
+    margin-bottom: 1.2rem;
+  }
+  
+  .ctaSection {
+    padding: 2rem 1rem;
+  }
+  
+  .ctaTitle {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .ctaText {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+  
+  .ctaButton {
+    padding: 1rem 1.8rem;
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+  
+  .titleIcon {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .stats {
+    gap: 0.8rem;
+  }
+  
+  .stat {
+    font-size: 0.9rem;
+  }
+  
+  .projectStatus {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .projects {
+    padding: 2.5rem 0.5rem;
+    padding-top: 75px;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .projectCard {
+    min-height: 360px;
+  }
+  
+  .cardHeader {
+    padding: 0.8rem 0.8rem 0;
+  }
+  
+  .cardContent {
+    padding: 0 0.8rem 0.8rem;
+  }
+  
+  .projectTitle {
+    font-size: 1rem;
+  }
+  
+  .projectDescription {
+    font-size: 0.8rem;
+  }
+  
+  .ctaSection {
+    padding: 1.5rem 0.8rem;
+  }
+  
+  .ctaTitle {
+    font-size: 1.3rem;
+  }
+  
+  .ctaButton {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .tech {
+    font-size: 0.6rem;
   }
 }
